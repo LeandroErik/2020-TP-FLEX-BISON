@@ -386,7 +386,7 @@ char *yytext;
 #define INITIAL 0
 #line 2 "lexico.l"
 
-#include "y.tab.h"
+#include "y.tab.h" /*Integro el .header que genera el parser(bison) porque tiene declrados los tokens*/
 #include <string.h>
 int yylex();
 void yyerror(char* s);
@@ -542,10 +542,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 10 "lexico.l"
+#line 9 "lexico.l"
 
-
-#line 549 "lex.yy.c"
+#line 548 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -630,85 +629,85 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 12 "lexico.l"
-{return LEER;}
+#line 10 "lexico.l"
+{return LEER;}/*retorna los tokens que le pide el parser,estos token deben coincidir con los declarados en bison bison*/
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 13 "lexico.l"
+#line 11 "lexico.l"
 {return ESCRIBIR;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 14 "lexico.l"
+#line 12 "lexico.l"
 {return INICIO;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 15 "lexico.l"
+#line 13 "lexico.l"
 {return FIN;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 16 "lexico.l"
+#line 14 "lexico.l"
 {return ASIGNACION;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 17 "lexico.l"
+#line 15 "lexico.l"
 {return PARENIZQ;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 18 "lexico.l"
+#line 16 "lexico.l"
 {return PARENDER;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 19 "lexico.l"
+#line 17 "lexico.l"
 {return COMA;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 20 "lexico.l"
+#line 18 "lexico.l"
 {return PC;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 21 "lexico.l"
+#line 19 "lexico.l"
 {return MAS;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 22 "lexico.l"
+#line 20 "lexico.l"
 {return MENOS;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 23 "lexico.l"
+#line 21 "lexico.l"
 {yylval.num = atoi(yytext); return CONS;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 24 "lexico.l"
-{yylval.txt = strdup(yytext); return ID;}
+#line 22 "lexico.l"
+{yylval.txt = strdup(yytext); return ID;}{yylval.txt = strdup(yytext); return ID;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 25 "lexico.l"
+#line 23 "lexico.l"
 {;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 26 "lexico.l"
-{yyerror("caracter no correcto ");}
+#line 24 "lexico.l"
+{yyerror("caracter no reconocido ");}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 28 "lexico.l"
+#line 26 "lexico.l"
 ECHO;
 	YY_BREAK
-#line 712 "lex.yy.c"
+#line 711 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1594,7 +1593,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 28 "lexico.l"
+#line 26 "lexico.l"
 
 
 int yywrap(void){

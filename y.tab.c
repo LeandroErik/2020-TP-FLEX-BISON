@@ -70,9 +70,9 @@
 /* Line 189 of yacc.c  */
 #line 1 "sintactico.y"
 
-
-void yyerror(char *s);
-int yylex();
+/*Tenmos a los prototipos de funciones en bison*/
+void yyerror(char *s); /*Invoco a la rutina de error*/
+int yylex(); /*Invoco a Lex*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -148,7 +148,7 @@ typedef union YYSTYPE
 
 /* Line 214 of yacc.c  */
 #line 11 "sintactico.y"
-
+ /*sABMEOS QUE POR DEFECTO LOS VALORES SON DE TIPO ENTERO ,PERO SI NECESITAMOS MAS TIPOSDE DATOS USAMOS LA CLAUSULA %Union*/
     int num;
     char* txt;
     
@@ -456,8 +456,8 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    26,    26,    27,    31,    32,    33,    34,    35,    36,
-      37,    38,    39,    40,    41,    42,    43
+       0,    32,    32,    33,    37,    38,    39,    40,    41,    42,
+      43,    44,    45,    46,    47,    48,    49
 };
 #endif
 
@@ -468,7 +468,7 @@ static const char *const yytname[] =
 {
   "$end", "error", "$undefined", "INICIO", "FIN", "LEER", "ESCRIBIR",
   "PARENIZQ", "PARENDER", "PC", "CONS", "ID", "NUM", "ASIGNACION", "COMA",
-  "MENOS", "MAS", "$accept", "TKN", "token", 0
+  "MENOS", "MAS", "$accept", "inicio", "token", 0
 };
 #endif
 
@@ -1366,92 +1366,92 @@ yyreduce:
         case 4:
 
 /* Line 1455 of yacc.c  */
-#line 31 "sintactico.y"
-    {printf("constante: %d\n", (yyvsp[(1) - (1)].num));}
+#line 37 "sintactico.y"
+    {printf("\tCONSTANTE: %d\n", (yyvsp[(1) - (1)].num));}
     break;
 
   case 5:
 
 /* Line 1455 of yacc.c  */
-#line 32 "sintactico.y"
-    {printf("id: %s\n", (yyvsp[(1) - (1)].txt));}
+#line 38 "sintactico.y"
+    {printf("\tID: %s\n", (yyvsp[(1) - (1)].txt));}
     break;
 
   case 6:
 
 /* Line 1455 of yacc.c  */
-#line 33 "sintactico.y"
-    {printf("inicio\n");}
+#line 39 "sintactico.y"
+    {printf("\tINICIO\n");}
     break;
 
   case 7:
 
 /* Line 1455 of yacc.c  */
-#line 34 "sintactico.y"
-    {printf("fin\n");}
+#line 40 "sintactico.y"
+    {printf("\tFIN\n");}
     break;
 
   case 8:
 
 /* Line 1455 of yacc.c  */
-#line 35 "sintactico.y"
-    {printf("leer\n");}
+#line 41 "sintactico.y"
+    {printf("\tLEER\n");}
     break;
 
   case 9:
 
 /* Line 1455 of yacc.c  */
-#line 36 "sintactico.y"
-    {printf("escribir\n");}
+#line 42 "sintactico.y"
+    {printf("\tESCRIBIR\n");}
     break;
 
   case 10:
 
 /* Line 1455 of yacc.c  */
-#line 37 "sintactico.y"
-    {printf("par derecho\n");}
+#line 43 "sintactico.y"
+    {printf("\tPAR DERECHO\n");}
     break;
 
   case 11:
 
 /* Line 1455 of yacc.c  */
-#line 38 "sintactico.y"
-    {printf("par izquierdo\n");}
+#line 44 "sintactico.y"
+    {printf("\tPAR IZQUIERDO\n");}
     break;
 
   case 12:
 
 /* Line 1455 of yacc.c  */
-#line 39 "sintactico.y"
-    {printf("coma\n");}
+#line 45 "sintactico.y"
+    {printf("\tCOMA\n");}
     break;
 
   case 13:
 
 /* Line 1455 of yacc.c  */
-#line 40 "sintactico.y"
-    {printf("pc\n");}
+#line 46 "sintactico.y"
+    {printf("\tPUNTO Y COMA\n");}
     break;
 
   case 14:
 
 /* Line 1455 of yacc.c  */
-#line 41 "sintactico.y"
-    {printf("asignar\n");}
+#line 47 "sintactico.y"
+    {printf("\tASIGNACION\n");}
     break;
 
   case 15:
 
 /* Line 1455 of yacc.c  */
-#line 42 "sintactico.y"
-    {printf("sumar\n");}
+#line 48 "sintactico.y"
+    {printf("\tSUMA\n");}
     break;
 
   case 16:
 
 /* Line 1455 of yacc.c  */
-#line 43 "sintactico.y"
-    {printf("restar\n");}
+#line 49 "sintactico.y"
+    {printf("\tRESTA\n");}
     break;
 
 
@@ -1669,7 +1669,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 47 "sintactico.y"
+#line 53 "sintactico.y"
 
 
 int main(){

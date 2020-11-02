@@ -80,7 +80,7 @@ typedef union YYSTYPE
 
 /* Line 1676 of yacc.c  */
 #line 11 "sintactico.y"
-
+ /*sABMEOS QUE POR DEFECTO LOS VALORES SON DE TIPO ENTERO ,PERO SI NECESITAMOS MAS TIPOSDE DATOS USAMOS LA CLAUSULA %Union*/
     int num;
     char* txt;
     
