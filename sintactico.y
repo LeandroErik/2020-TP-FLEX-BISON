@@ -1,5 +1,5 @@
 %{
-/*Tenmos a los prototipos de funciones en bison*/
+/*Tenemos a los prototipos de funciones en bison*/
 void yyerror(char *s); /*Invoco a la rutina de error*/
 int yylex(); /*Invoco a Lex*/
 #include <stdio.h>
@@ -8,10 +8,9 @@ int yylex(); /*Invoco a Lex*/
 
 %}
 
-%union { /*sABMEOS QUE POR DEFECTO LOS VALORES SON DE TIPO ENTERO ,PERO SI NECESITAMOS MAS TIPOSDE DATOS USAMOS LA CLAUSULA %Union*/
+%union { /*SABMEOS QUE POR DEFECTO LOS VALORES SON DE TIPO ENTERO ,PERO SI NECESITAMOS MAS TIPOSDE DATOS USAMOS LA CLAUSULA %Union ,esto se ve reflejado en yylval ->varibable global*/
     int num;
     char* txt;
-    
     float real;
 }
 /*Indico la precedencia ,si en el caso que declare primero tal token ,este tiene mayor precedencia que el de abajo
@@ -27,7 +26,7 @@ en el caso de la asociatividad ,debo poner %left % right % nonassoc para indicar
 %left MAS MENOS COMA
 
 %%
-/*Ca defino la gramatica,con axioma "inicio" y su respectivas rutinas semanticas , en este caso solo hacemos que imprima algo*/
+/*Defino la gramatica Indep de contexto,con axioma "inicio" y su respectivas rutinas semanticas , en este caso solo hacemos que imprima algo*/
 
 inicio  : 	token 
         |   inicio token

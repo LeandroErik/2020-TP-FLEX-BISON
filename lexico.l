@@ -18,10 +18,10 @@ void yyerror(char* s);
 ;			{return PC;}
 \+			{return MAS;}
 -			{return MENOS;}
-[0-9]+					{yylval.num = atoi(yytext); return CONS;}
-[a-zA-Z][a-zA-Z0-9]*	{yylval.txt = strdup(yytext); return ID;}{yylval.txt = strdup(yytext); return ID;}
-[ \t\n]					{;}
-.						{yyerror("caracter no reconocido ");}
+[0-9]+			{yylval.num = atoi(yytext); return CONS;}
+[a-zA-Z][a-zA-Z0-9]*	{yylval.txt = strdup(yytext); return ID;}
+[ \t\n]			{;}
+.				{yyerror("caracter no reconocido ");}
 
 %%
 
