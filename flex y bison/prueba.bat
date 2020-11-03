@@ -1,3 +1,3 @@
 flex lexico.l
 bison -yd sintactico.y
-gcc lex.yy.c y.tab.c -o salida
+gcc y.tab.c lex.yy.c -o salida

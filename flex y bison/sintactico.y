@@ -1,8 +1,8 @@
 %{
 /*Tenemos a los prototipos de funciones en bison*/
 #include <stdio.h>
-extern int yylex(); /*Invoco a Lex*/
-extern void yyerror(char *s); /*Invoco a la rutina de error*/
+int yylex(); /*Invoco a Lex*/
+void yyerror(char *s); /*Invoco a la rutina de error*/
 %}
 
 %union { /*SABMEOS QUE POR DEFECTO LOS VALORES SON DE TIPO ENTERO ,PERO SI NECESITAMOS MAS TIPOSDE DATOS USAMOS LA CLAUSULA %Union ,esto se ve reflejado en yylval ->varibable global*/
@@ -15,7 +15,7 @@ extern void yyerror(char *s); /*Invoco a la rutina de error*/
 sentencias: sentencias sentencia
 |sentencia
 ;
-sentencia: ID ASIGNACION  expresion PYCOMA
+sentencia: ID ASIGNACION expresion PYCOMA
 ;
 expresion: primaria
 |expresion operadorAditivo primaria
@@ -30,10 +30,14 @@ operadorAditivo: SUMA
 %%
 int main(){
 yyparse();
+
+
 }
 void yyerror(char *s){
 printf ("%s\n",s);
+
 }
-int yywrap() {
-	return 1 ;
+int yywrap(void){
+    return 1;
 }
+

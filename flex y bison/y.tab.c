@@ -72,8 +72,8 @@
 
 /*Tenemos a los prototipos de funciones en bison*/
 #include <stdio.h>
-extern int yylex(); /*Invoco a Lex*/
-extern void yyerror(char *s); /*Invoco a la rutina de error*/
+int yylex(); /*Invoco a Lex*/
+void yyerror(char *s); /*Invoco a la rutina de error*/
 
 
 /* Line 189 of yacc.c  */
@@ -1561,11 +1561,15 @@ yyreturn:
 
 int main(){
 yyparse();
+
+
 }
 void yyerror(char *s){
 printf ("%s\n",s);
+
 }
-int yywrap() {
-	return 1 ;
+int yywrap(void){
+    return 1;
 }
+
 

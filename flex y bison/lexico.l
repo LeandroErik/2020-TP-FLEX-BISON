@@ -1,25 +1,24 @@
 %{
 #include <stdio.h>
+#include <stdlib.h>
 #include "y.tab.h"
-#include <string.h>
-int yylex();
-void yyerror(char* s);
 
 /* GENERADO AUTOMÁTICAMENTE POR BISON */
 %}
-letra [a-zA-Z]
-digito [0-9]
-identificador {letra}({letra}|{digito})*
-constEntera {digito}({digito})*
+LETRA [a-zA-Z]
+DIGITO [0-9]
+IDENTIFICADOR {LETRA}({LETRA}|{DIGITO})*
+constEntera {DIGITO}({DIGITO})*
+%%
+":=" 		{return ASIGNACION;}
+{constEntera} 	{return CONSTANTE;}
+{IDENTIFICADOR} {return ID;}
+";"		{return PYCOMA;}
+"(" 		{return PARENIZQUIERDO;}
+")" 		{return PARENDERECHO;}
+"+" 		{return SUMA;}
+"-"		{return RESTA;}
+
 %%
 
-{constEntera} {return CONSTANTE;}
-":=" {return ASIGNACION;}
-"+" {return SUMA;}
-{identificador} {return ID;}
-"(" {return PARENIZQUIERDO;}
-")" {return PARENDERECHO;}
-[ \t\n]			{;}
-.				{yyerror("caracter no reconocido ");}
-%%
 
